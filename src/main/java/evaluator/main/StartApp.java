@@ -41,63 +41,57 @@ public class StartApp {
 			
 			optiune = console.readLine();
 			
-			switch(optiune){
-			case "1" :
-				String dom,enunt,var1,var2,varcorecta;
-                System.out.println("Domeniu:");
+			if(optiune.equals("1")) {
+				String dom, enunt, var1, var2, varcorecta;
+				System.out.println("Domeniu:");
 				dom = keyboard.nextLine();
 
-                System.out.println("Enunt:");
+				System.out.println("Enunt:");
 				enunt = keyboard.nextLine();
 
-                System.out.println("Varinta 1:");
+				System.out.println("Varinta 1:");
 				var1 = keyboard.nextLine();
 
-                System.out.println("Varinta 2:");
+				System.out.println("Varinta 2:");
 				var2 = keyboard.nextLine();
 
-                System.out.println("Varinta corecta:");
+				System.out.println("Varinta corecta:");
 				varcorecta = keyboard.nextLine();
 
 				try {
-				    Intrebare intrebare = new Intrebare(enunt,var1,var2,varcorecta,dom);
-                    appController.addNewIntrebare(intrebare);
-                } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
-                }
-				break;
-			case "2" :
-			    try {
-                    Test test = appController.createNewTest();
-                    for(Intrebare intreb : test.getIntrebari()) {
-                        System.out.println(intreb);
-                    }
-                    System.out.println();
-                } catch (Exception ex) {
-                    System.out.println(ex.getMessage());
-                }
+					Intrebare intrebare = new Intrebare(enunt, var1, var2, varcorecta, dom);
+					appController.addNewIntrebare(intrebare);
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
+			} else if(optiune.equals("2")) {
+				try {
+					Test test = appController.createNewTest();
+					for (Intrebare intreb : test.getIntrebari()) {
+						System.out.println(intreb);
+					}
+					System.out.println();
+				} catch (Exception ex) {
+					System.out.println(ex.getMessage());
+				}
 
-				break;
-			case "3" :
-			    try {
-                    appController.loadIntrebariFromFile(file);
-                } catch (Exception ex) {
-                    System.out.println("File error");
-                }
+			}
+			else if(optiune.equals("3")) {
+				try {
+					appController.loadIntrebariFromFile(file);
+				} catch (Exception ex) {
+					System.out.println("File error");
+				}
 				Statistica statistica;
 				try {
 					statistica = appController.getStatistica();
 					System.out.println(statistica);
 				} catch (NotAbleToCreateStatisticsException e) {
-                    System.out.println(e.getMessage());
+					System.out.println(e.getMessage());
 				}
 
-				break;
-			case "4" :
+			} else if(optiune.equals("4")) {
 				activ = false;
-				break;
-			default:
-				break;
 			}
 		}
 		

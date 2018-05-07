@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Intrebare {
 	
 	private String enunt;
-	private ArrayList<String> variante = new ArrayList<>();
+	private ArrayList<String> variante = new ArrayList<String>();
 	private String variantaCorecta;
 	private String domeniu;
 	

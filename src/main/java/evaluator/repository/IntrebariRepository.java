@@ -11,7 +11,7 @@ import evaluator.exception.DuplicateIntrebareException;
 
 public class IntrebariRepository {
 	
-	private List<Intrebare> intrebari = new ArrayList<>();
+	private List<Intrebare> intrebari = new ArrayList<Intrebare>();
 	
 	public IntrebariRepository() {
 		setIntrebari(new LinkedList<Intrebare>());
